@@ -168,15 +168,50 @@ O Flare Tracker usa um design system minimalista com dark mode:
 
 ### Ícones
 
-Os ícones PWA precisam ser adicionados em `public/icons/`. Veja `public/icons/README.md` para instruções de como gerá-los.
+Os ícones PWA são gerados automaticamente durante o build. Para gerar manualmente:
+
+```bash
+npm run generate-icons
+```
+
+Os ícones são criados em `public/icons/` com todos os tamanhos necessários.
 
 ### Manifest
 
-O manifest já está configurado em `public/manifest.json` com:
+O manifest está configurado automaticamente em `vite.config.ts` com:
 - Nome da aplicação
 - Cores de tema
 - Orientação preferida (portrait)
 - Display mode (standalone)
+- Ícones em vários tamanhos
+
+## 🚀 Deployment
+
+A aplicação está configurada para deploy automático no GitHub Pages.
+
+### Deploy Automático
+
+Todo push para o branch `main` dispara automaticamente o deploy via GitHub Actions.
+
+### URL da Aplicação
+
+Após o deploy, a aplicação estará disponível em:
+
+```
+https://Ivo-S-Silva.github.io/IllTrack/
+```
+
+### Instalação como PWA
+
+A aplicação pode ser instalada como PWA em dispositivos móveis e desktop. Veja instruções detalhadas em [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+### Configuração Inicial do GitHub Pages
+
+1. Acesse **Settings** > **Pages** no GitHub
+2. Em **Source**, selecione **GitHub Actions**
+3. O primeiro deploy será automático após o push
+
+Para mais informações sobre deployment, consulte o guia completo em [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## 🧪 Testing
 
