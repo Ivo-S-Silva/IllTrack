@@ -4,11 +4,15 @@ import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/IllTrack/' : '/',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['icons/*.png'],
+      devOptions: {
+        enabled: false
+      },
       manifest: {
         name: 'Flare Tracker',
         short_name: 'Flare Tracker',
@@ -17,6 +21,8 @@ export default defineConfig({
         background_color: '#1f1f1f',
         display: 'standalone',
         orientation: 'portrait',
+        scope: process.env.NODE_ENV === 'production' ? '/IllTrack/' : '/',
+        start_url: process.env.NODE_ENV === 'production' ? '/IllTrack/' : '/',
         icons: [
           {
             src: 'icons/icon-72x72.png',
